@@ -1,0 +1,13 @@
+suitcase
+box
+backpack
+briefcase
+cart
+trunk
+chest
+drawer
+cabinet
+display case
+bag
+sack
+case

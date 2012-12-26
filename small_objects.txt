@@ -1,0 +1,22 @@
+toy
+instrument
+pot
+plate
+pants
+shirt
+lamp
+plant
+laptop
+tablet
+radio
+stereo
+tape
+wallet
+doll
+blankets
+pillow
+book
+textbook
+tin can
+dictionary
+phone

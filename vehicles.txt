@@ -1,0 +1,22 @@
+delivery truck
+school bus
+pickup truck
+minivan
+small car
+convertible
+sedan
+old car
+classic car
+antique car
+hatchback
+hybrid car
+small truck
+mail truck
+transport truck
+taxi
+electric car
+police car
+fire truck
+ambulance
+garbage truck
+sports car
