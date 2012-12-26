@@ -1,0 +1,9 @@
+cup
+glass
+bottle
+pitcher
+teacup
+mug
+jug
+flask
+goblet

@@ -10,16 +10,15 @@ class Winograd:
 	def generate(self):
 		# Switch genders, 50% of the time
 		if(random.randint(0,1) == 1):
-			if("malename" in self.schema):
-				self.schema = re.sub("<malename>", "<femalename>", self.schema)
-				self.schema = re.sub(r"\bhis\b", "her", self.schema)
-				self.schema = re.sub(r"\bhe\b", "she", self.schema)
-				self.schema = re.sub(r"\bhim\b", "her", self.schema)
-			else:
-				self.schema = re.sub("<femalename>", "<malename>", self.schema)
-				self.schema = re.sub(r"\bher\b", "his", self.schema)
-				self.schema = re.sub(r"\bshe\b", "he", self.schema)
-				self.schema = re.sub(r"\bher\b", "him", self.schema)
+			self.schema = re.sub("<malename>", "<femalename>", self.schema)
+			self.schema = re.sub(r"\bhis\b", "her", self.schema)
+			self.schema = re.sub(r"\bhe\b", "she", self.schema)
+			self.schema = re.sub(r"\bhim\b", "her", self.schema)
+		else:
+			self.schema = re.sub("<femalename>", "<malename>", self.schema)
+			self.schema = re.sub(r"\bher\b", "his", self.schema)
+			self.schema = re.sub(r"\bshe\b", "he", self.schema)
+			self.schema = re.sub(r"\bher\b", "him", self.schema)
 		
 		schemaparts = self.schema.split("=")
 		self.question = schemaparts[0]
@@ -72,7 +71,7 @@ def random_lines(filename, n):
 	lines = map(lambda s: s.strip(), lines)
 	return lines
 
-w = Winograd("winograd_test.txt")
+w = Winograd("winograd.txt")
 w.generate()
 print w.question
 print w.answer
