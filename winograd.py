@@ -70,8 +70,8 @@ def random_lines(filename, n):
 		lines = random.sample(f.readlines(), n)
 	lines = map(lambda s: s.strip(), lines)
 	return lines
-
-w = Winograd("winograd.txt")
-w.generate()
-print w.question
-print w.answer
+if __name__ == '__main__':
+	w = Winograd("winograd.txt")
+	w.generate()
+	print w.question
+	print w.answer

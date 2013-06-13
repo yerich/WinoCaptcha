@@ -10,3 +10,4 @@
 *.so
 .settings
 .pydevproject
+*.db
