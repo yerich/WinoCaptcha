@@ -29,11 +29,19 @@ THE SOFTWARE.
 #### The winolib wrapper
 
 This wrapper uses `winograd.py` to generate a `shelve` db of preset questions.
-It provides access to questions and verification of answers in a way that is practical for stateless web applications:
+It provides access to questions and verification of answers in a way that is practical for stateless web applications.
+Captcha questions get a onetime token to avoid replay attacks.
 
         >>> from WinoCaptcha import winolib
-        >>> winolib.get_question() # First time you call this, it would generate wino.db (can take a few seconds).
-            {'token': 'SfPFU4dMZgJsamxcWFUY2cE69WbdBEpH6VBsMT0s4',
-             'question': "The bus driver knows all about Bryan's dirty secrets simply because he is indiscreet. Who is indiscreet?"}
-        >>> winolib.check_answer('SfPFU4dMZgJsamxcWFUY2cE69WbdBEpH6VBsMT0s4','bryan') # Case insensitive
-            True
+        >>> winolib.get_question()
+        {'token': '51bee4c7XLP0eZjFBiMOjAq8xjPp714Wk7oZ520DrM458Si62go',
+         'question': 'Despite the fact that they usually come pretty close to each other, Dawn won against Melissa because she had such a good start. Who had a good start?'}
+        >>> winolib.check_answer('51bee4c7XLP0eZjFBiMOjAq8xjPp714Wk7oZ520DrM458Si62go','dawn') # right answer
+        True
+        >>> `winolib.check_answer('51bee4c7XLP0eZjFBiMOjAq8xjPp714Wk7oZ520DrM458Si62go','dawn')` # replay attempt
+        'None'
+        >>> winolib.get_question()
+        {'token': '51bee51eFgISvqyS0SycT0lp9UWAZAeJkHe5Oif8xR2jWZJLXw',
+         'question': "Erica tried to get a coffee with Andrea, but she wasn't available. Who was not available?"}
+        >>> winolib.check_answer('51bee51eFgISvqyS0SycT0lp9UWAZAeJkHe5Oif8xR2jWZJLXw','bla') # wrong answer
+        False
