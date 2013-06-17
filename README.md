@@ -2,7 +2,7 @@
 
 A Captcha Alternative, based on [Winograd Schemas](http://www.cs.toronto.edu/~hector/Papers/winograd.pdf). `python winograd.py` for a demo.
 
-Question and answer generator written by [Richard Ye](http://www.github.com/yerich), winolib wrapper and web integration written by [thedod](http://www.github.com/thedod).
+Question and answer generator written by [Richard Ye](http://www.github.com/yerich), winolib wrapper and web integration written by [The Dod](https://dubiousdod.org/thedod).
 
 #### The winolib wrapper
 
@@ -28,7 +28,7 @@ Captcha questions get a onetime token to avoid replay attacks.
 
 The MIT License (MIT)
 
-Copyright (c) 2013 [Richard Ye](http://www.github.com/yerich) and [thedod](http://www.github.com/thedod).
+Copyright (c) 2013 [Richard Ye](http://www.github.com/yerich) and [The Dod](https://dubiousdod.org/thedod).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
