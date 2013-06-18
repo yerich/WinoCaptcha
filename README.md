@@ -6,9 +6,13 @@ Question and answer generator written by [Richard Ye](http://www.github.com/yeri
 
 #### The winolib wrapper
 
-This wrapper uses `winograd.py` to generate a `shelve` db of preset questions.
-It provides access to questions and verification of answers in a way that is practical for stateless web applications.
-Captcha questions get a onetime token to avoid replay attacks.
+This wrapper uses `winograd.py` to generate a challenge and verify a user's answer to such a challenge in a way that is practical for stateless web applications.
+
+Each challenge has a token that can only be used once (to avoid replay and brute-force attacks),
+but since a replay can also happen by accident (reload, back button, etc.), there's a distinct failure mode
+for an "attack or honest mistake" where winolib returns `None` (as opposed to the `False` it returns when the user fails the captcha test).
+
+When `None` is returned, best is to fail (e.g. redisplays the form) *without* displaying a [confusing and untrue] "captcha failed" error.
 
         >>> from WinoCaptcha import winolib
         >>> winolib.get_question()
